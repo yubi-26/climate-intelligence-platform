@@ -1,216 +1,154 @@
 # 🌍 Climate Risk Intelligence
 
-### A Novel Environmental Risk Quantification System Using Cross-City Pattern Analysis
+### Real-time Environmental Risk Quantification & Forecasting Platform
+
+<p align="center">
+  <i>Turning environmental data into actionable risk intelligence.</i>
+</p>
 
 ---
 
-## 🧠 Abstract
+## 🧠 Overview
 
-This project introduces a **novel Climate Risk Score** — a composite index (0–100) that integrates **PM2.5**, **temperature anomaly**, **humidity stress**, and **AQI** into a single, interpretable measure of environmental health risk for any city worldwide.
+Climate Risk Intelligence is a research prototype that quantifies and visualizes environmental health risk across 15 global cities using a **novel composite index**.
 
-Unlike conventional dashboards that merely display raw data, this system provides:
+It combines:
 
-- **Risk quantification** via a weighted multi-factor model
-- **Cross-City Prediction** using similar-climate city patterns
-- **Health guidance** tailored to risk levels
-- **Global risk mapping** for comparative analysis
+- Air pollution data (PM2.5, AQI)
+- Weather conditions (temperature, humidity)
+- Weighted multi-factor risk scoring
+- Cross-city similarity prediction
+- Multi-period temporal forecasting
 
-The goal is to transform raw environmental data into **actionable risk intelligence** for public health and climate resilience.
-
----
-
-## 🎯 Objectives
-
-- Design a **novel composite index** for environmental health risk
-- Integrate PM2.5, temperature, humidity, and AQI into a unified score
-- Predict tomorrow's risk using **Cross-City Pattern Analysis**
-- Provide **interpretable health recommendations**
-- Visualize global risk distribution on an interactive map
-- Build a production-ready research prototype
+> The goal: transform raw environmental data into a **human-readable risk decision system**.
 
 ---
 
-## 🔬 Core Innovation: Climate Risk Score
+## 🔥 Key Features
 
-### Formula
+### 🎯 Climate Risk Score Engine
 
-| Factor              | Weight | Rationale                                        |
-| ------------------- | ------ | ------------------------------------------------ |
-| PM2.5               | 40%    | Primary air pollution indicator (WHO guidelines) |
-| Temperature Anomaly | 30%    | Deviation from human comfort zone (18–24°C)      |
-| Humidity Stress     | 20%    | Deviation from optimal humidity (40–60%)         |
-| AQI                 | 10%    | Composite air quality adjustment                 |
+Composite risk model based on PM2.5 (40%) + Temperature Anomaly (30%) + Humidity Deviation (20%) + AQI (10%). Outputs a **0–100 interpretable risk score**.
 
-### Risk Levels
+### 🗺 Global Risk Visualization
 
-| Score Range | Level       | Health Implication                       |
-| ----------- | ----------- | ---------------------------------------- |
-| 0–30        | 🟢 Low      | Safe for all outdoor activities          |
-| 30–60       | 🟡 Moderate | Sensitive groups should take precautions |
-| 60–80       | 🟠 High     | Limit outdoor exposure, wear mask        |
-| 80–100      | 🔴 Extreme  | Avoid all outdoor activities             |
+Interactive Mapbox-powered world map of 15 major cities with color-coded risk levels and real-time cross-region comparison.
 
----
+### 📈 Temporal Risk Trend Analysis
 
-## 🔮 Cross-City Prediction Engine
+48-hour simulated risk trajectory with seasonal + stochastic modeling. Threshold-based risk levels: Low → Moderate → High → Extreme.
 
-A novel approach for **risk forecasting without time-series data**:
+### 🤖 Cross-City Prediction Engine
 
-1. **Global Baseline**: Mean risk across all monitored cities
-2. **Similar City Detection**: Identifies 3 cities with closest PM2.5 + temperature profile
-3. **Trend Direction**: Rule-based inference from current conditions
-4. **Weighted Prediction**: Current value (50%) + Similar cities mean (30%) + Global baseline (20%)
-5. **Confidence Scoring**: Based on similarity distance to reference cities
+Similarity-weighted nearest-neighbor model that predicts tomorrow's risk **without requiring historical time-series data**. Confidence scoring (50–92%).
 
-### Research Significance
+### 🧠 AI Insights Generator
 
-> Demonstrates that **spatial cross-city patterns** can substitute for temporal data in environmental risk prediction — a practical approach for data-scarce regions.
+Automatically generates city ranking insights, pollution deviation analysis, global comparison metrics, and risk contribution explanations.
+
+### 📉 Multi-Period Forecasting
+
+Predicts risk levels for 6h / 12h / 24h / 48h / 72h / 7d horizons.
 
 ---
 
-## 🌍 System Architecture
+## 🏗️ System Architecture
 
-┌─────────────────────────────────────────────────────┐
-│ Data Sources │
-│ climate_data.csv (15 global cities, real-time) │
-└────────────────────────┬────────────────────────────┘
-↓
-┌─────────────────────────────────────────────────────┐
-│ Risk Score Engine │
-│ Weighted Multi-Factor Normalization (0–100) │
-└────────────────────────┬────────────────────────────┘
-↓
-┌─────────────────────────────────────────────────────┐
-│ Cross-City Prediction Engine │
-│ Similar City Detection + Trend Analysis │
-└────────────────────────┬────────────────────────────┘
-↓
-┌─────────────────────────────────────────────────────┐
-│ Streamlit Dashboard (Dark Theme) │
-│ • Risk Score Card • KPI Cards • Health Guidance │
-│ • Trend Graph • Global Risk Map • City Rankings │
-│ • Tomorrow's Forecast • Contributing Factors │
-└─────────────────────────────────────────────────────┘
+Data Layer → Processing Layer → Analytics Layer → Presentation Layer
+(Synthetic + CSV) (Risk scoring, (Trend simulation, (Streamlit + Plotly)
+normalization, cross-city pred,
+similarity) forecast)
 
 text
 
 ---
 
-## 📊 Dataset
+## 🧮 Risk Model
 
-- **Cities**: Tokyo, Beijing, Bangkok, Seoul, Delhi, Singapore, Dhaka, Ulaanbaatar, Berlin, London, Reykjavik, New York, Sydney, Nairobi, Jakarta
-- **Features**:
-  - `city` — City name
-  - `lat`, `lon` — Geographic coordinates
-  - `temperature` — Temperature (°C)
-  - `pm25` — PM2.5 concentration (µg/m³)
-  - `aqi` — Air Quality Index
-  - `humidity` — Relative humidity (%)
-  - `timestamp` — Observation timestamp
-- **Coverage**: 15 cities across Asia, Europe, North America, Africa, Australia
+Risk Score = PM2.5×0.40 + Temp_Anomaly×0.30 + Humidity_Deviation×0.20 + AQI×0.10
+
+text
+
+Normalized to **0 (Safe) → 100 (Extreme Risk)** .
 
 ---
 
-## 🖥️ Dashboard Features
+## 🌐 Tech Stack
 
-| Feature                  | Description                                                |
-| ------------------------ | ---------------------------------------------------------- |
-| **Risk Score Card**      | Central display with gradient text and risk level badge    |
-| **KPI Cards**            | PM2.5, Temperature, Humidity, AQI in glass-morphism design |
-| **Health Guidance**      | Auto-generated recommendations based on risk level         |
-| **Risk Trend**           | Time-series line chart with threshold indicators           |
-| **Global Risk Map**      | Dark-theme Mapbox with green-to-red risk gradient          |
-| **City Rankings**        | Top 5 highest & lowest risk cities                         |
-| **Tomorrow's Forecast**  | Cross-city prediction with confidence level                |
-| **Contributing Factors** | AI-generated explanations for risk changes                 |
+| Layer         | Technology                     |
+| ------------- | ------------------------------ |
+| UI            | Streamlit                      |
+| Data          | Pandas, NumPy                  |
+| Visualization | Plotly, Mapbox                 |
+| Fonts         | Syne, DM Sans, JetBrains Mono  |
+| ML            | Similarity-weighted heuristics |
+
+---
+
+## 📊 Risk Levels
+
+| Score  | Level       | Color                    |
+| ------ | ----------- | ------------------------ |
+| 0–34   | 🟢 Low      | Safe conditions          |
+| 35–54  | 🟡 Moderate | Sensitive groups caution |
+| 55–74  | 🟠 High     | Limit outdoor exposure   |
+| 75–100 | 🔴 Extreme  | Avoid outdoor activities |
 
 ---
 
 ## ⚡ Quick Start
 
 ```bash
-git clone https://github.com/yubi-26/climate-intelligence-platform.git
-cd climate-intelligence-platform
-
+git clone https://github.com/[username]/climate-risk-intelligence.git
+cd climate-risk-intelligence
 pip install -r requirements.txt
-
 streamlit run dashboard.py
-📦 Requirements
+📁 Project Structure
 text
-streamlit
-pandas
-numpy
-plotly
-📈 Key Findings
-PM2.5 is the dominant driver of environmental health risk across all cities
-
-Temperature anomaly amplifies risk non-linearly beyond the comfort zone
-
-Cross-city patterns can provide reasonable risk forecasts without historical data
-
-Global Risk Baseline across 15 cities is ~32/100, indicating moderate global risk
-
-Delhi and Dhaka consistently rank highest; Nairobi ranks lowest
-
-🔬 Research Contribution
-This project proposes a novel composite environmental risk index and demonstrates that spatial cross-city analysis can serve as a practical substitute for temporal forecasting in data-limited scenarios.
-
-Why This Matters
-Enables risk assessment for cities without historical data
-
-Provides interpretable scores for non-technical stakeholders
-
-Bridges environmental science and public health communication
-
-Demonstrates research-style system design beyond simple data visualization
-
-📉 Limitations
-Current dataset: single timestamp per city (cross-sectional)
-
-Prediction confidence depends on similar city availability
-
-Health risk score not validated against epidemiological data
-
-Humidity partially simulated for cities without data
-
+├── dashboard.py          # Main application
+├── climate_data.csv      # Environmental dataset (15 cities)
+├── requirements.txt      # Python dependencies
+└── README.md
 🚀 Future Work
-Integrate real-time APIs (Open-Meteo, WAQI)
+Real-time API integration (Open-Meteo, WAQI)
 
-Collect 7-day rolling data per city
+LSTM-based deep learning forecasting
 
-Implement XGBoost/LightGBM for temporal prediction
+Satellite data fusion (MODIS, Sentinel-5P)
 
-Add SHAP explainability for risk score decomposition
+Email/Push alert system
 
-Expand to 50+ global cities
+Streamlit Cloud deployment
 
-Deploy on Streamlit Cloud with auto-refresh
+Expand to 50+ cities
 
-Validate against WHO health impact data
+🧠 Research Value
+This project demonstrates:
 
-🧾 Conclusion
-Climate Risk Intelligence demonstrates a complete pipeline from environmental data integration to actionable risk intelligence. The system's core contribution — a weighted multi-factor risk index combined with cross-city prediction — offers a practical and extensible framework for environmental health risk assessment.
+Novel composite index design for environmental health
 
-This project is positioned as a research prototype suitable for:
+Spatial cross-city pattern analysis as a substitute for temporal data
 
-Environmental data science portfolios
+Human-centered risk visualization with Decision-First design philosophy
 
-Graduate school applications (Climate Informatics, Environmental Health)
+Interpretable ML-inspired systems for public health applications
 
-Public health decision support systems
+🎯 Design Philosophy
+"Not just data. Decisions."
 
-Urban climate resilience planning
+One screen = one narrative
 
-👤 Author
-Data Science & AI Portfolio Project
-Focus: Environmental Risk Intelligence · Composite Index Design · Cross-City Pattern Analysis · Interactive Visualization
+Risk score as the primary visual anchor
 
-📚 References
-WHO Global Air Quality Guidelines (2021)
+All charts serve the main decision
 
-Open-Meteo API Documentation
+Minimal cognitive load, maximum clarity
 
-WAQI API Documentation
+📌 Author
+Built as a Climate Data Intelligence Research Prototype.
 
-Streamlit Documentation
+Focus: Environmental Analytics · Risk Quantification · AI-Assisted Decision Systems · Interactive Visualization
+
+📄 License
+MIT
 ```
