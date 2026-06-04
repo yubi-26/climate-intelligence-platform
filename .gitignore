@@ -1,28 +1,80 @@
+# =========================
 # Python
+# =========================
 __pycache__/
 *.py[cod]
 *.so
 .Python
+*.egg-info/
+*.egg
+dist/
+build/
+*.pyc
+
+# =========================
+# Virtual Environments
+# =========================
 env/
 venv/
 ENV/
 env.bak/
 venv.bak/
+.venv/
+venv*/
 
+# =========================
 # IDE
+# =========================
 .vscode/
 .idea/
 *.swp
 *.swo
-
-# Environment variables
-.env
-.env.local
-
-# Data
-climate_data.csv
-*.log
-
-# OS
+*.swn
 .DS_Store
 Thumbs.db
+*.db
+
+# =========================
+# Environment Variables（最重要）
+# =========================
+.env
+.env.local
+.env.*.local
+*.env
+
+# =========================
+# Data Files
+# =========================
+*.log
+*.db
+*.sqlite
+*.sqlite3
+
+# =========================
+# Secrets（絶対に公開しない）
+# =========================
+*secret*
+*key*
+*token*
+*password*
+*.pem
+*.key
+
+# =========================
+# Streamlit
+# =========================
+.streamlit/
+*.pid
+
+# =========================
+# Jupyter
+# =========================
+.ipynb_checkpoints/
+*.ipynb
+
+# =========================
+# OS
+# =========================
+.DS_Store
+Thumbs.db
+desktop.ini
